@@ -1,0 +1,38 @@
+.navbar-container {
+  @apply w-screen h-14 flex bg-white fixed top-0 z-20;
+}
+.navbar {
+  @apply max-w-6xl h-full flex flex-row m-auto flex-grow;
+}
+.navbar-item {
+  @apply flex relative items-center justify-center  flex-col h-full gap-[2px]   max-w-[6rem] w-full min-w-[1.4rem] md:min-w-[5rem] no-underline  text-xs text-gray-500 hover:text-gray-900;
+}
+
+.search {
+  @apply h-full md:flex-grow w-full items-center relative shrink hidden md:flex;
+}
+
+.search-input {
+  @apply h-10 bg-slate-200 pl-10 px-2 text-sm w-full text-ellipsis  max-w-xs rounded-md;
+}
+.search-icon {
+  @apply absolute left-0 text-sm flex items-center justify-center  flex-col h-10 top-1/2 aspect-square -translate-y-1/2;
+}
+.nav-global {
+  @apply flex flex-row items-center w-full  flex-grow relative;
+}
+.small-nav {
+  @apply absolute top-[calc(100%+5px)] max-w-[100vw] h-16 justify-end right-1 flex flex-row grow bg-white rounded-lg shadow-md shadow-slate-400;
+}
+.small-nav .navbar-item {
+  @apply w-[3.5rem] max-w-[6.5rem] h-full flex-grow;
+}
+.premium {
+  @apply min-w-[7rem] max-w-[8rem];
+}
+.small-nav .premium {
+  @apply min-w-[6rem];
+}
+.navbar-item-active {
+  @apply text-gray-900 after:content-[''] after:w-full after:h-1 after:absolute after:bottom-0 after:left-0 after:bg-zinc-700;
+}

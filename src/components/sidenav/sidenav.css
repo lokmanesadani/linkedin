@@ -1,0 +1,7 @@
+.sidenav-global {
+  @apply w-80 h-[calc(100vh-56px)] m-0 fixed bg-slate-50 border-t transition-transform rounded-l-xl z-20 right-0 top-14;
+}
+
+.sidenav-title {
+  @apply px-6 py-4 text-left font-semibold relative;
+}

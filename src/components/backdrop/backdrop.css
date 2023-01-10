@@ -1,0 +1,18 @@
+.backdrop {
+  @apply fixed top-0 left-0 right-0 bottom-0 bg-black opacity-40 duration-200 visible z-10 transition-all;
+}
+.backdrop-closed {
+  @apply opacity-0 invisible;
+}
+.backdrop-animation {
+  animation: backdrop 1s reverse;
+}
+
+@keyframes backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
