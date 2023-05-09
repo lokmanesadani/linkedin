@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Navbar from "./components/navbar/Navbar";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -15,7 +15,7 @@ function App() {
 
         <SideNav />
         <Backdrop />
-        <Routes >
+        <Routes>
           <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>

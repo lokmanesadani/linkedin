@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+
 html,
 body {
   overflow-x: hidden;
@@ -17,10 +11,6 @@ body {
 }
 
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell,
-    "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
 
   @apply bg-[#f2f3ef] mt-14;
 }

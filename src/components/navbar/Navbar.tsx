@@ -13,12 +13,14 @@ import { useEffect, useRef, useState } from "react";
 import Work from "../icons/Work";
 import { useDispatch, useSelector } from "react-redux";
 import { setNavState } from "../../redux/sideenav/sidenavSlice";
+import SmallNav from "components/smallNav/smallNav";
 const items: NavbarItem[] = [
   {
     title: "Home",
     link: "/home",
     icon: Home,
     active: true,
+    notifications: 3,
   },
   {
     title: "My network",
@@ -50,9 +52,9 @@ interface NavbarItem {
   link: string;
   icon: any;
   active: boolean;
+  notifications?: number;
 }
 const Navbar = () => {
-  const dispatch = useDispatch();
   const [link, setLink] = useState(window.location.pathname);
   const [searching, setSearch] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -84,38 +86,6 @@ const Navbar = () => {
   }, []);
 
   // top nav second part
-  const smallNav = (
-    <>
-      <div className="navbar-item border-r border-gray-300">
-        <div className="profile-pic rounded-full h-[18px] aspect-square bg-slate-600"></div>
-        <div className="profiletext text-xs hidden md:block">
-          <span>Me</span>
-          <FontAwesomeIcon className="h-3 pl-1" icon={faCaretDown} />
-        </div>
-      </div>
-      <div
-        onClick={() => {
-          dispatch(setNavState());
-        }}
-        className="navbar-item"
-      >
-        <div className="profile-pic">
-          <Work height="1.5em" />
-        </div>
-        <div className="profiletext text-xs hidden md:block">
-          <span>Work</span>
-          <FontAwesomeIcon className="h-3 pl-1" icon={faCaretDown} />
-        </div>
-      </div>
-
-      <Link
-        to={"/premium"}
-        className="navbar-item min-w-[4rem] premium underline mr-2 md:min-w-[5.5rem] text-[10px] md:text-[12px]"
-      >
-        Try Premium for <br /> free
-      </Link>
-    </>
-  );
 
   const open = (
     <div className="navbar-item text-xl cursor-pointer">
@@ -147,7 +117,7 @@ const Navbar = () => {
             </Link>
           );
         })}
-        {smallNav}
+        <SmallNav />
       </div>
     </div>
   );
@@ -155,7 +125,7 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <div className="navbar">
-        <div className="h-full w-16 grid place-content-center shrink-0 text-blue-700">
+        <div className="mr-2 overflow-hidden rounded-lg shrink-0 text-blue-700">
           <Linkedin height="2.4em" />
         </div>
         <div className="search">
@@ -199,12 +169,17 @@ const Navbar = () => {
                 to={item.link}
                 key={item.link}
               >
-                <item.icon height="1.5em" />
+                <div className="relative">
+                  {item.notifications && (
+                    <div className="top-0 right-0 translate-x-1 -translate-y-1 absolute h-[14px] aspect-square border-4 border-red-600 bg-white rounded-full" />
+                  )}
+                  <item.icon height="1.5em"></item.icon>
+                </div>
                 <span className="text-xs hidden md:block">{item.title}</span>
               </Link>
             );
           })}
-          {windowWidth < 450 ? open : smallNav}
+          {windowWidth < 450 ? open : <SmallNav />}
         </div>
       </div>
     </div>
